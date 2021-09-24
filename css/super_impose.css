@@ -1,0 +1,28 @@
+html,
+body {
+  margin: 0; /* Because annoying default browser margins */
+}
+video {
+  position: absolute;
+
+  transform-origin: bottom left;
+  width: 100vw;
+  height: 100vh;
+  margin-top: -100vw;
+  object-fit: cover;
+
+  visibility: visible;
+}
+.vid-container {
+  position: relative;
+  margin: 0;
+}
+.background_vid{
+    z-index: -1;
+    position: absolute;
+}
+
+.foreground_vid {
+  z-index: 1;
+  position: absolute;
+}
