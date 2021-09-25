@@ -5,11 +5,10 @@ body {
 video {
   position: absolute;
 
-  transform-origin: bottom left;
-  width: 100vh;
-  height: 100vw;
-  margin-top: -100vw;
-  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  margin-top: 00vw;
+
 
   z-index: 4;
   visibility: visible;
