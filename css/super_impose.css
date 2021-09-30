@@ -5,24 +5,22 @@ body {
 video {
   position: absolute;
 
-  transform-origin: bottom left;
   width: 100vw;
   height: 100vh;
-  margin-top: -100vw;
-  object-fit: cover;
+  margin-top: 00vh;
 
   visibility: visible;
 }
 .vid-container {
-  position: relative;
+  position: absolute;
   margin: 0;
 }
 .background_vid{
-    z-index: -1;
+    z-index: 1;
     position: absolute;
 }
 
 .foreground_vid {
-  z-index: 1;
+  z-index: 4;
   position: absolute;
 }
