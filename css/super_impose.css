@@ -24,3 +24,44 @@ video {
   z-index: 4;
   position: absolute;
 }
+/* CSS classes for deals*/
+.deals {
+  z-index: 8;
+  position: relative;
+  background-color:#007FFF;
+  /* Its better to position the deals div tags using style ="top:300px;lef:40px;"*/
+  /* top: 150px; */
+  padding: 30px;
+  /* For chamfered corners, cut the below if you want different corners */
+  /*https://bennettfeely.com/clippy/ for polygon */
+  -webkit-clip-path: polygon(20% 0, 100% 0, 100% 30%, 100% 66%, 80% 100%, 0 100%, 0% 70%, 0 33%);
+  clip-path: polygon(20% 0, 100% 0, 100% 30%, 100% 66%, 80% 100%, 0 100%, 0% 70%, 0 33%);
+}
+/* Its like a deal class, but it has a background image */
+.deals_bg {
+  z-index: 8;
+  position: relative;
+  background-image: url(http://i.share.pho.to/b75f672b_o.jpeg);
+  padding: 22px;
+}
+/* CSS for menu items */
+.menu{
+  z-index: 6;
+  display: flex;
+  position: absolute;
+  /* Its better to position the deals div tags using style ="top:300px;lef:40px;"*/
+  /* top: 150px; */
+  background-color:#FFFFFF;
+  padding: 22px;
+  justify-content: space-between;
+  row-gap: 10px;
+  -webkit-clip-path: polygon(20% 0, 100% 0, 100% 30%, 100% 66%, 80% 100%, 0 100%, 0% 70%, 0 33%);
+  clip-path: polygon(20% 0, 100% 0, 100% 30%, 100% 66%, 80% 100%, 0 100%, 0% 70%, 0 33%);
+}
+.menu_item {
+  z-index: 7;
+  background-color:#f99245;
+  padding: 10px;
+  box-shadow: 5px 7px #007FFF;
+  border: 1px solid;
+}
