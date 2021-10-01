@@ -13,6 +13,7 @@
 
 
     <link rel="stylesheet" href="./css/super_impose.css">
+    <link rel="stylesheet" href="./css/weather-icons.css">
   </head>
   <body>
     <div class="vid-container" id="video_container" >
@@ -43,7 +44,21 @@
       </div>
       -->
       <div class="weather_bar" id="weather_box1">
-        <p> Ayy lmao </p>
+        <div class="weather_icon">
+          <i class="wi wi-day-sunny"></i>
+        </div>
+        <div class="temperature">
+            <h1 id="current_temp"> 76&#176; </h1>
+        </div>
+        <div style = "padding-left: 15px; width: 150px; float: left;">
+          <div style="padding-top:15px">
+            <h4 class="min_max" id="max temperature">maximum: 83&#176; </h4>
+            <hr>
+          </div>
+          <div>
+            <h4 class="min_max" id="min temperature"> minimum: 69&#176; </h4>
+          </div>
+        </div>
       </div>
     </div>
     <script src="./js/scripts.js"></script>

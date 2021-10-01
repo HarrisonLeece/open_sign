@@ -11,9 +11,22 @@ video {
 
   visibility: visible;
 }
+hr.divider
+{
+   margin-top: 0em;
+   margin-bottom: 0em;
+   border-width: 2px;
+}
+.min_max{
+  margin-top: 0em;
+  margin-bottom: 0em;
+  border-width: 2px;
+}
 .vid-container {
   position: absolute;
   margin: 0;
+  height: 100%;
+  width: 100%;
 }
 .background_vid{
     z-index: 1;
@@ -27,7 +40,7 @@ video {
 /* CSS classes for deals*/
 .deals {
   z-index: 8;
-  position: relative;
+  position: absolute;
   background-color:#007FFF;
   /* Its better to position the deals div tags using style ="top:300px;lef:40px;"*/
   /* top: 150px; */
@@ -73,13 +86,33 @@ video {
 .weather_bar {
    background-color:#FFFFFF;
    opacity: 0.5;
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   height: 100px;
+   width: 100%;
+   z-index: 20;
+   float: left;
 }
 .graph_div{
-
+  z-index: 21;
+  position: relative;
+}
+.temperature {
+  z-index: 21;
+  position: relative;
+   float: left;
+   padding-left: 15px
 }
 .weather_icon {
-
+  width: 70px;
+  height: 70px;
+  font-size: 70px;
+  float: left;
+  padding-left: 25px;
 }
 .last_updated {
-
+  z-index: 21;
+  position: relative;
+  float: right;
 }
