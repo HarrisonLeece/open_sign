@@ -10,7 +10,7 @@ import socketserver
 
 def fetch_openweather():
     ###Fetch current weather data from https://openweathermap.org/current
-    my_api_key = '42dee1402cca0f1316a87e94e68784b6'
+    my_api_key = 'fake_api_key'
     url_string = 'https://api.openweathermap.org/data/2.5/weather?id=5370082&appid='+my_api_key
     #While the server is running, make an API request for a JSON file every hours
     timeout = 0
