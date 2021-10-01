@@ -65,9 +65,14 @@ video {
   box-shadow: 5px 7px #007FFF;
   border: 1px solid;
 }
+/* CSS for displayin a logo */
+.logo {
+  background-image: url('./images/logo.webp');
+}
 /* Displaying Weather  */
 .weather_bar {
-
+   background-color:#FFFFFF;
+   opacity: 0.5;
 }
 .graph_div{
 
