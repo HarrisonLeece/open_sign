@@ -10,14 +10,14 @@ import socketserver
 
 def fetch_openweather():
     ###Fetch current weather data from https://openweathermap.org/current
-    my_api_key = 'fake_api_key'
+    my_api_key = '42dee1402cca0f1316a87e94e68784b6'
     url_string = 'https://api.openweathermap.org/data/2.5/weather?id=5370082&appid='+my_api_key
     #While the server is running, make an API request for a JSON file every hours
     timeout = 0
     while (True):
         response = requests.request('GET', url_string)
         if (response.status_code != 200):
-            print('API request failed with status code: ' + to_string(response.status_code))
+            print('API request failed with status code: ' + str(response.status_code))
             #If a API call fails wait 10 mins and call again increment timeout
             time.sleep((timeout+1)*300)
             timeout = timeout + 1
@@ -26,7 +26,7 @@ def fetch_openweather():
             timeout=0
             print('API contacted successfully... dumping to file system')
             json_response = response.json()
-            with open('current_weather.json', 'w') as f:
+            with open('./js/json/current_weather.json', 'w') as f:
                 json.dump(json_response, f)
             #After a successful JSON Grab, wait 3 hours to refresh data from API
             time.sleep(3*3600)
