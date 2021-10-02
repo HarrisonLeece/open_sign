@@ -10,6 +10,16 @@ function decide_icon(current_time, sunrise, sunset, weather){
   if (current_time >= sunrise && current_time <= sunset) {
     class_str = class_str+"day-"
   }
+  switch(expression) {
+    case x:
+      // code block
+      break;
+    case y:
+      // code block
+      break;
+    default:
+      // code block
+  }
 }
 
 function change_weather_html(data) {
@@ -17,15 +27,20 @@ function change_weather_html(data) {
   let temp = (data.main.temp-273.15) * 9/5 + 32;
   let temp_min = (data.main.temp_min-273.15) * 9/5 + 32;
   let temp_max = (data.main.temp_max-273.15) * 9/5 + 32;
-  let humidity = data.main.humidity
-
-  let icon = data.weather.icon
+  let humidity = data.main.humidity;
+  let wind = data.wind.speed *2.237;
+  let current_time = data.dt;
+  let sunrise = data.sys.sunrise;
+  let sunset = data.sys.sunset;
+  let weather_descriptor = data.weather.main;
 
   var weather_bar = document.getElementById('weather_bar');
-  document.getElementById('weather_icon').class = ;
+  document.getElementById('weather_icon').class = decide_icon();
   document.getElementById('temperature').innerHTML = temp;
   document.getElementById('max_temperature').innerHTML = temp_max;
   document.getElementById('min_temperature').innerHTML = temp_min;
+  document.getElementById('humidity').innerHTML = humidity;
+  document.getElementById('wind').innerHTML = wind;
 
 
 
