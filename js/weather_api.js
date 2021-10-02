@@ -34,6 +34,7 @@ function decide_icon(current_time, sunrise, sunset, weather){
     class_str = "wi wi-alien"
   }
   return class_str
+}
 
 function change_weather_html(data) {
   //All this date comes out in metric;;; Temperature in Kelvin
@@ -54,7 +55,6 @@ function change_weather_html(data) {
   document.getElementById('min_temperature').innerHTML = temp_min;
   document.getElementById('humidity').innerHTML = humidity;
   document.getElementById('wind').innerHTML = wind;
-
 
 
 }
