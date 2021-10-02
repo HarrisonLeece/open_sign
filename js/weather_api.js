@@ -5,16 +5,29 @@ async function get_weather(url) {
   return data
 }
 
-function change_weather_html(data) {
-  var video = document.getElementById('weather_bar');
+function decide_icon(current_time, sunrise, sunset, weather){
+  let class_str = "wi wi-";
+  if (current_time >= sunrise && current_time <= sunset) {
+    class_str = class_str+"day-"
+  }
+}
 
+function change_weather_html(data) {
   //All this date comes out in metric;;; Temperature in Kelvin
-  let temp = data.main.temp
-  let temp_min = data.main.temp_min
-  let temp_max = data.main.temp_max
+  let temp = (data.main.temp-273.15) * 9/5 + 32;
+  let temp_min = (data.main.temp_min-273.15) * 9/5 + 32;
+  let temp_max = (data.main.temp_max-273.15) * 9/5 + 32;
   let humidity = data.main.humidity
 
   let icon = data.weather.icon
+
+  var weather_bar = document.getElementById('weather_bar');
+  document.getElementById('weather_icon').class = ;
+  document.getElementById('temperature').innerHTML = temp;
+  document.getElementById('max_temperature').innerHTML = temp_max;
+  document.getElementById('min_temperature').innerHTML = temp_min;
+
+
 
 }
 
