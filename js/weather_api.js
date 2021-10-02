@@ -52,8 +52,8 @@ function change_weather_html(data) {
   document.getElementById('current_temp').innerHTML = String(temp) + "&#176;";
   document.getElementById('max_temperature').innerHTML = "maximum: " + String(temp_max) + "&#176;";
   document.getElementById('min_temperature').innerHTML = "minimum: " + String(temp_min) + "&#176;";
-  document.getElementById('humidity').innerHTML = String(humidity)+"%";
-  document.getElementById('wind').innerHTML = String(wind) + " mph";
+  document.getElementById('humidity').innerHTML = "humidity: " + String(humidity)+"%";
+  document.getElementById('wind').innerHTML = "wind: " + String(wind) + " mph";
   document.getElementById('weather_icon').class = decide_icon(current_time, sunrise,sunset,  weather_descriptor);
 
 }
