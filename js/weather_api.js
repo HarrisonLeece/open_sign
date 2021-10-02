@@ -38,24 +38,23 @@ function decide_icon(current_time, sunrise, sunset, weather){
 
 function change_weather_html(data) {
   //All this date comes out in metric;;; Temperature in Kelvin
-  let temp = (data.main.temp-273.15) * 9/5 + 32;
-  let temp_min = (data.main.temp_min-273.15) * 9/5 + 32;
-  let temp_max = (data.main.temp_max-273.15) * 9/5 + 32;
-  let humidity = data.main.humidity;
-  let wind = data.wind.speed *2.237;
+  let temp = Math.round((data.main.temp-273.15) * 9/5 + 32);
+  let temp_min = Math.round((data.main.temp_min-273.15) * 9/5 + 32);
+  let temp_max = Math.round((data.main.temp_max-273.15) * 9/5 + 32);
+  let humidity = Math.round(data.main.humidity);
+  let wind = Math.round(data.wind.speed *2.237);
   let current_time = data.dt;
   let sunrise = data.sys.sunrise;
   let sunset = data.sys.sunset;
   let weather_descriptor = data.weather.main;
 
   var weather_bar = document.getElementById('weather_bar');
+  document.getElementById('current_temp').innerHTML = String(temp) + "&#176;";
+  document.getElementById('max_temperature').innerHTML = "maximum: " + String(temp_max) + "&#176;";
+  document.getElementById('min_temperature').innerHTML = "minimum: " + String(temp_min) + "&#176;";
+  document.getElementById('humidity').innerHTML = String(humidity)+"%";
+  document.getElementById('wind').innerHTML = String(wind) + " mph";
   document.getElementById('weather_icon').class = decide_icon(current_time, sunrise,sunset,  weather_descriptor);
-  document.getElementById('temperature').innerHTML = temp;
-  document.getElementById('max_temperature').innerHTML = temp_max;
-  document.getElementById('min_temperature').innerHTML = temp_min;
-  document.getElementById('humidity').innerHTML = humidity;
-  document.getElementById('wind').innerHTML = wind;
-
 
 }
 
@@ -73,16 +72,22 @@ let json_data = get_weather("./js/json/current_weather.json")
   .then((json_data) => extracted_data=json_data)
 
 console.log(extracted_data);
-let temperature = extracted_data.main.temp
+try {
+  let temperature = extracted_data.main.temp
+  console.log(temperature)
+} catch {
+  console.log('Extracted Data was undefined')
+}
 
-console.log(temperature)
+
+
 setInterval(function() {
     //Load JSON file from a child directory (in this case ./js/json/current_weather.json)
     json_data = get_weather("./js/json/current_weather.json")
       .then((json_data) => extracted_data=json_data)
-    console.log(extracted_data)
     temperature = extracted_data.main.temp
-    console.log(temperature)
+    change_weather_html(extracted_data)
+
 
 
 }, weather_interval);
