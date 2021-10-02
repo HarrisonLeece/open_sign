@@ -8,19 +8,32 @@ async function get_weather(url) {
 function decide_icon(current_time, sunrise, sunset, weather){
   let class_str = "wi wi-";
   if (current_time >= sunrise && current_time <= sunset) {
-    class_str = class_str+"day-"
+    class_str = class_str+"day-";
+  } else {
+    class_str = class_str+"night-";
   }
-  switch(expression) {
-    case x:
-      // code block
-      break;
-    case y:
-      // code block
-      break;
-    default:
-      // code block
+  if (weather == "clear sky") {
+    class_str = class_str + "sunny"
+  }else if (weather == "few clouds"){
+    class_str = class_str + "sunny"
+  }else if (weather == "scattered clouds"){
+    class_str = class_str + "cloudy"
+  }else if (weather == "broken clouds"){
+    class_str = class_str + "cloudy"
+  }else if (weather == "shower rain"){
+    class_str = class_str + "showers"
+  }else if (weather == "rain"){
+    class_str = class_str + "rain"
+  }else if (weather == "thunderstorm "){
+    class_str = class_str + "thunderstorm"
+  }else if (weather == "snow "){
+    class_str = class_str + "snow"
+  }else if (weather == "mist "){
+    class_str = class_str + "fog"
+  } else {
+    class_str = "wi wi-alien"
   }
-}
+  return class_str
 
 function change_weather_html(data) {
   //All this date comes out in metric;;; Temperature in Kelvin
@@ -35,7 +48,7 @@ function change_weather_html(data) {
   let weather_descriptor = data.weather.main;
 
   var weather_bar = document.getElementById('weather_bar');
-  document.getElementById('weather_icon').class = decide_icon();
+  document.getElementById('weather_icon').class = decide_icon(current_time, sunrise,sunset,  weather_descriptor);
   document.getElementById('temperature').innerHTML = temp;
   document.getElementById('max_temperature').innerHTML = temp_max;
   document.getElementById('min_temperature').innerHTML = temp_min;
